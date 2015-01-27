@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-"""Tizen Helper - commandline tool for searching, checking out git repositories."""
+"""Tizen Helper - Gotit"""
 
 import sys
 import os
@@ -77,17 +77,14 @@ if __name__ == "__main__":
 
 	subparsers = parser.add_subparsers()
 
-	# ls
 	parser_list = subparsers.add_parser('ls', help='show list of packages')
 	parser_list.set_defaults(func=cmd_list)
 
-	# src|source {path}
 	parser_source = subparsers.add_parser('src', help='checkout a package')
 	parser_source.add_argument('path')
 	parser_source.add_argument('target', nargs='?', default=None)
 	parser_source.set_defaults(func=cmd_source)
 
-	# search {keyword}
 	parser_search = subparsers.add_parser('search', help='search packages')
 	parser_search.add_argument('keyword')
 	parser_search.set_defaults(func=cmd_list)
